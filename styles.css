@@ -328,3 +328,214 @@ button {
   color: var(--text);
   font-weight: 500;
 }
+
+/* ===== PRODUCT HERO ===== */
+.product-hero {
+  padding: 8px 0 72px;
+}
+.product-hero-grid {
+  display: grid;
+  grid-template-columns: 46% 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Image carousel */
+.product-gallery {
+  position: relative;
+}
+.main-image-wrapper {
+  position: relative;
+}
+.carousel-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.15 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-cream);
+}
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 150ms;
+  z-index: 5;
+}
+.carousel-arrow:hover {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.arrow-left {
+  left: 14px;
+}
+.arrow-right {
+  right: 14px;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.thumb {
+  width: 76px;
+  height: 58px;
+  border-radius: var(--radius-sm);
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 150ms;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.thumb.active,
+.thumb:hover {
+  border-color: var(--navy);
+}
+
+/* Zoom preview */
+.zoom-preview {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 20px);
+  width: 380px;
+  height: 380px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-size: 250%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--bg-cream);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.zoom-preview.active {
+  opacity: 1;
+  visibility: visible;
+}
+.zoom-lens {
+  display: none;
+}
+
+/* Product details */
+.product-details {
+  padding-top: 0;
+}
+.cert-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  background: #fff;
+}
+.ce-mark {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--text);
+  font-weight: 400;
+}
+.feature-list li svg {
+  flex-shrink: 0;
+}
+.price-box {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.price-label {
+  font-size: 14px;
+  color: var(--text-sec);
+  font-weight: 500;
+}
+.price-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+.info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.info-tag {
+  padding: 10px 16px;
+  background: var(--bg-cream);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-sec);
+  font-weight: 500;
+}
+.product-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
