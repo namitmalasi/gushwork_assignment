@@ -1104,19 +1104,6 @@ button {
 .contact-form input::placeholder {
   color: var(--text-light);
 }
-.phone-input {
-  display: flex;
-  gap: 10px;
-}
-.phone-code {
-  width: 85px;
-  flex-shrink: 0;
-  padding: 15px 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-size: 15px;
-  font-family: var(--font);
-}
 
 /* ===== FOOTER ===== */
 .site-footer {
