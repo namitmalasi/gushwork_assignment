@@ -5,7 +5,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* ========== MOBILE MENU ========== */
+  // Mobile Menu
   const mobileToggle = document.getElementById("mobileMenuToggle");
   const navLinks = document.getElementById("navLinks");
 
@@ -16,11 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ========== STICKY HEADER ==========
-   * Shows when scrolling past the product hero section (first fold).
-   * Hides when scrolling back up into the first fold.
-   * Uses requestAnimationFrame for smooth performance.
-   */
+  //  Header
   const stickyHeader = document.getElementById("stickyHeader");
   const productHero = document.getElementById("productHero");
   let lastScrollY = 0;
@@ -33,10 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
       : 600;
 
     if (currentScrollY > heroBottom) {
-      // Past the first fold — show sticky header
       stickyHeader.classList.add("visible");
     } else {
-      // Back in the first fold — hide sticky header
       stickyHeader.classList.remove("visible");
     }
 
@@ -51,9 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ========== IMAGE CAROUSEL ==========
-   * Supports prev/next arrows, thumbnail navigation, and touch swipe.
-   */
+  //   Carousel
   const carouselTrack = document.getElementById("carouselTrack");
   const arrowLeft = document.getElementById("arrowLeft");
   const arrowRight = document.getElementById("arrowRight");
@@ -71,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     currentSlide = index;
     carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-    // Update active thumbnail
     thumbnails.forEach((thumb, i) => {
       thumb.classList.toggle("active", i === currentSlide);
     });
@@ -84,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     arrowRight.addEventListener("click", () => goToSlide(currentSlide + 1));
   }
 
-  // Thumbnail click navigation
   thumbnails.forEach((thumb) => {
     thumb.addEventListener("click", () => {
       const index = parseInt(thumb.dataset.index, 10);
@@ -92,11 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ========== ZOOM ON HOVER ==========
-   * When hovering over the main carousel image, a zoomed preview
-   * appears to the right showing a magnified view that follows
-   * the mouse position.
-   */
+  //  Zoom
   if (carouselMain && zoomPreview) {
     carouselMain.addEventListener("mouseenter", () => {
       // Get current slide's background image
@@ -118,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carouselMain.addEventListener("mousemove", (e) => {
       if (!zoomPreview.classList.contains("active")) return;
       const rect = carouselMain.getBoundingClientRect();
-      // Calculate mouse position as percentage within the carousel
       const x = ((e.clientX - rect.left) / rect.width) * 100;
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       zoomPreview.style.backgroundPosition = `${x}% ${y}%`;
@@ -129,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ========== TOUCH SWIPE FOR CAROUSEL ========== */
   let touchStartX = 0;
   let touchEndX = 0;
   const SWIPE_THRESHOLD = 50;
@@ -160,9 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  /* ========== FAQ ACCORDION ==========
-   * Toggles FAQ items open/closed with smooth animation.
-   */
+  //  Faq
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach((item) => {
@@ -170,10 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
     question.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
 
-      // Close all other FAQ items
       faqItems.forEach((other) => other.classList.remove("active"));
 
-      // Toggle current item
       if (!isActive) {
         item.classList.add("active");
         question.setAttribute("aria-expanded", "true");
@@ -183,9 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ========== TABS NAVIGATION ==========
-   * Switches between manufacturing process tabs.
-   */
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
 
@@ -193,11 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const tabId = btn.dataset.tab;
 
-      // Deactivate all tabs
       tabBtns.forEach((b) => b.classList.remove("active"));
       tabContents.forEach((c) => c.classList.remove("active"));
 
-      // Activate clicked tab
       btn.classList.add("active");
       const targetContent = document.getElementById(`tab-${tabId}`);
       if (targetContent) {
@@ -206,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ========== CONTACT FORM ========== */
+  //   Contact Form
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
@@ -218,9 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ========== SCROLL ANIMATIONS (Intersection Observer) ==========
-   * Animates elements into view as user scrolls down the page.
-   */
   const animateEls = document.querySelectorAll(
     ".feature-card, .testimonial-card, .section-title-serif, .section-title-bold, .section-title-mixed, .contact-card, .process-tabs",
   );
@@ -245,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-  /* ========== KEYBOARD NAVIGATION ========== */
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") goToSlide(currentSlide - 1);
     if (e.key === "ArrowRight") goToSlide(currentSlide + 1);

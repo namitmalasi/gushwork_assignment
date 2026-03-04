@@ -1125,7 +1125,7 @@ button {
   font-weight: 700;
 }
 .footer-banner-text .highlight {
-  color: var(--navy);
+  color: var(--navy); 
 }
 .footer-grid {
   display: grid;
