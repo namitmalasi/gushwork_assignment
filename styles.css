@@ -702,3 +702,95 @@ button {
 .features-cta {
   text-align: center;
 }
+
+/* ===== FAQ ===== */
+.faq-section {
+  padding: 96px 0 80px;
+  background: var(--bg-cream);
+}
+.section-title-mixed {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 44px;
+  letter-spacing: -0.3px;
+}
+.section-title-mixed .highlight {
+  color: var(--navy);
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  gap: 16px;
+}
+.faq-arrow {
+  transition: transform 300ms;
+  flex-shrink: 0;
+  color: var(--text-sec);
+}
+.faq-item:not(.active) .faq-arrow {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 300ms ease,
+    padding 300ms ease;
+}
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 0 28px 24px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.7;
+}
+
+/* ===== DIDN'T FIND ===== */
+.not-found-cta {
+  padding: 0 0 48px;
+  background: var(--bg-cream);
+}
+.not-found-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.not-found-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.not-found-text .highlight {
+  color: var(--navy);
+}
+.not-found-text p {
+  font-size: 15px;
+  color: var(--text-sec);
+}
